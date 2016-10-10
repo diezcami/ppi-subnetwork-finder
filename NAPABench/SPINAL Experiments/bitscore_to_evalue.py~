@@ -1,0 +1,32 @@
+import math
+import sys
+import networkx as nx
+
+class GenerateData:
+	def __init__(self, simfilename):
+		outsimfilename = "%s.migraal_sim" % simfilename
+		simfile = open(simfilename)
+		outsimfile = open(outsimfilename, "w")
+
+		for line in simfile:
+			cols = line.split()
+			n1 = cols[0]
+			n2 = cols[1]
+			bitscore = cols[2]
+			e_value = math.pow(10,11) * math.pow(2,-float(cols[2]))
+			"""parts = str(e_value).split('.')
+			after_e = str(parts[1]).split('e')
+			print n1, n2
+			e_value = parts[0]+'e'+after_e[1]"""
+			e_value = '{:.1e}'.format(float(e_value))
+			if n1=="a1":
+				print e_value
+			line = "%s %s %s\n" %(n1, n2, e_value)
+			outsimfile.write(line)
+
+		simfile.close()
+		outsimfile.close()
+
+if __name__ == "__main__":				
+	inputdata = GenerateData(sys.argv[1])		
+																					
