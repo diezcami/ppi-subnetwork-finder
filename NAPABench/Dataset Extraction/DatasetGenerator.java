@@ -110,6 +110,9 @@ public class DatasetGenerator {
             }
         }
 
+        for (int i : matchList) {
+            System.out.println ("Added to Matchlist: A" + i);
+        }
         return matchList;
 
     }
@@ -119,6 +122,7 @@ public class DatasetGenerator {
         Set<Integer> matchListB = new HashSet<Integer>();
         for (int i : matchListA) {
             matchListB.add(solution[i-1]);
+            System.out.println ("Added to list of matched vertices: B" + (i));
         }
 
         return matchListB;
