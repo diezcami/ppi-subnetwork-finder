@@ -1,4 +1,4 @@
-public class GraphGenerator () {
+public class GraphGenerator {
     public static void main (String args[]) {
 
     }
