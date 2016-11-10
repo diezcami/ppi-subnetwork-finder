@@ -64,7 +64,9 @@ public class DatasetGenerator {
             System.out.println ("File not found!");
         }
         System.out.println ("Output file generated!");
-        //generateSequenceSimilarityFile();
+        generateSequenceSimilarityFile();
+        System.out.println ("Sequence similarity generated!");
+
     }
 
     // Bulky scary part of the algorithm
@@ -162,8 +164,23 @@ public class DatasetGenerator {
         return edgeList + dg;
     }
 
-/*
-    public void generateSequenceSimilarityFile() {
 
-    } */
+    public void generateSequenceSimilarityFile() {
+        String similarities = "";
+        for (int i = 1; i < gc.length + 1; i ++) {
+            // Min + (int)(Math.random() * (Max - Min))
+            int multiplier = (int)(Math.random() * 2) - 1;
+            int increment = (int)(Math.random() * sd);
+            increment *= multiplier;
+            String temp = "a" + i + " " + "b" + i + " " + (as + increment) + "\n";
+            similarities+=temp;
+        }
+        // Temporary: All vertices in GC are similar
+        try (Writer writer = new BufferedWriter(new OutputStreamWriter(
+                      new FileOutputStream("similarity-" + fileName), "utf-8"))) {
+                          writer.write(similarities);
+        } catch (IOException e) {
+            System.out.println ("File not found!");
+        }
+    }
 }

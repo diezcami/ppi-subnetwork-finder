@@ -6,9 +6,10 @@ public class DSGenRunner {
     public static void main (String args[]) {
         try {
             Scanner sc = new Scanner (System.in);
-            //System.out.println ("Input G_c file name: ");
-            //String gc_filename = sc.nextLine();
-            String gc_filename = "gc-ribbon.txt";
+            System.out.println ("Input G_c file name: ");
+            String gc_filename = sc.nextLine();
+
+            // String gc_filename = "gc-ribbon.txt";
 
             // Parsing G_c into a matrix
             Scanner s = new Scanner(new FileReader(gc_filename));
@@ -28,7 +29,7 @@ public class DSGenRunner {
             }
 
             // Accept n1, n2, e1, e2
-            /*
+
             int n1, n2, e1, e2, d1, d2, as, sd;
             System.out.println ("Input n1, n2, e1, e2, d1, d2, avg. similarity, standard dev: ");
             temp = sc.nextLine().split("\\s+");
@@ -48,8 +49,9 @@ public class DSGenRunner {
             String fileName = sc.nextLine();
 
             DatasetGenerator dg = new DatasetGenerator (gc, n1, n2, e1, e2, d1, d2, as, sd, dg1, dg2, fileName);
-            */
-            DatasetGenerator dg = new DatasetGenerator (gc, 40, 20, 30, 20, 60, 30, 0, 0, "n", "dg-octopus.txt", "output.txt");
+
+
+            // DatasetGenerator dg = new DatasetGenerator (gc, 40, 20, 30, 20, 60, 30, 50, 15, "n", "dg-big-octopus.txt", "output.txt");
             dg.generate(); // Ouput G1 and G2
         } catch (IOException e) {
             System.out.println ("File not found!");
