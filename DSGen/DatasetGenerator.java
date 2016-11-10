@@ -80,8 +80,16 @@ public class DatasetGenerator {
             // Min + (int)(Math.random() * (Max - Min))
             a = 0 + (int)(Math.random() * ((n-1) - 0)); // Vertex from GC, -1 bec. length isn't inclusive in matrix
             b = n + (int)(Math.random() * ((g.length - 1) - n)); // Vertex outside GC
-            if (g[a][b] == 0) {
+
+            if (a > b) { // Swap
+                 a = a + b;
+                 b = a - b;
+                 a = a - b;
+            }
+
+            if (g[a][b] == 0 && g[b][a] == 0 && a!=b) { // Dirty code/ clean up
                 g[a][b] = 1;
+                g[b][a] = 1;
                 e--;
             }
         }
@@ -92,8 +100,15 @@ public class DatasetGenerator {
             a = n + (int)(Math.random() * (g.length - n)); // Vertex outside GC
             b = n + (int)(Math.random() * (g.length - n)); // Vertex outside GC
 
-            if (g[a][b] == 0) {
+            if (a > b) { // Swap
+                 a = a + b;
+                 b = a - b;
+                 a = a - b;
+            }
+
+            if (g[a][b] == 0 && g[b][a] == 0 && a!=b) { // Dirty code/ clean up
                 g[a][b] = 1;
+                g[b][a] = 1;
                 d--;
             }
         }
@@ -108,8 +123,8 @@ public class DatasetGenerator {
         String edgeList = "";
         String metadata = "";
         int edgeCount = 0;
-        for (int i = 1; i < g.length; i++) {
-            for (int j = i + 1; j < g.length; j++) {
+        for (int i = 1; i < g.length + 1; i++) {
+            for (int j = i + 1; j < g.length + 1; j++) {
                 if (g[i-1][j-1] == 1) {
                     String temp = prefix + String.valueOf(i) + " " + prefix + String.valueOf(j) + "\n";
                     edgeList = edgeList + temp;

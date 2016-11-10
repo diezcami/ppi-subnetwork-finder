@@ -37,10 +37,10 @@ public class DSGenRunner {
             n2 = Integer.parseInt(temp[1]);
             e1 = Integer.parseInt(temp[2]);
             e2 = Integer.parseInt(temp[3]);
-            d1 = Integer.parseInt(temp[2]);
-            d2 = Integer.parseInt(temp[3]);
-            as = Integer.parseInt(temp[4]);
-            sd = Integer.parseInt(temp[5]);
+            d1 = Integer.parseInt(temp[4]);
+            d2 = Integer.parseInt(temp[5]);
+            as = Integer.parseInt(temp[6]);
+            sd = Integer.parseInt(temp[7]);
             System.out.println ("Input dg1 (Enter n for none): ");
             String dg1 = sc.nextLine();
             System.out.println ("Input dg2 (Enter n for none): ");
