@@ -200,7 +200,6 @@ public class DatasetGenerator {
                 int sim = Math.abs(edges1 - edges2);
                 if (sim <= 1 && edges1 != 0 && edges2 != 0 && sim != 0) { // Similar degrees within 2
                     double multiplier = edges1 > edges2 ? 1.0 * edges2 / edges1 : 1.0 * edges1 / edges2;
-                    System.out.println (multiplier);
                     int sign = (int)(Math.random() * 2) - 1;
                     multiplier *= sd;
                     String temp = "a" + i + " " + "b" + j + " " + (as - multiplier) + "\n";
