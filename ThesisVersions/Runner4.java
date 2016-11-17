@@ -10,31 +10,36 @@ public class Runner4
 {
 	public static void main(String[] args)
 	{
+		try
+		{
 		long startTime = System.currentTimeMillis();
 		Scanner s = new Scanner(System.in);
+		System.out.println("Type in file name of input:");
+		String filename = s.nextLine();
+		Scanner s2 = new Scanner(new FileReader(filename));
 		String[] temp = null;
 		int graph1row, graph1col, graph2row, graph2col;
-		System.out.println ("Creating Matrix 1");
-		String[] input = s.nextLine().split("\\s+");
+		//System.out.println ("Creating Matrix 1");
+		String[] input = s2.nextLine().split("\\s+");
 		int numberOfNodes = Integer.parseInt(input[0]);
 		int numberOfEdges = Integer.parseInt(input[1]);
 		int[][] graph1 = new int[numberOfNodes][numberOfNodes];
 		for(int i = 0; i < numberOfEdges; i++)
 		{
-			temp = s.nextLine().split("\\s+");
+			temp = s2.nextLine().split("\\s+");
 			graph1row = Integer.parseInt(temp[0].substring(1));
 			graph1col = Integer.parseInt(temp[1].substring(1));
 			graph1[graph1row-1][graph1col-1] = 1;
 			graph1[graph1col-1][graph1row-1] = 1;
 		}
-		System.out.println ("Creating Matrix 2");
-		input = s.nextLine().split("\\s+");
+		//System.out.println ("Creating Matrix 2");
+		input = s2.nextLine().split("\\s+");
 		numberOfNodes = Integer.parseInt(input[0]);
 		numberOfEdges = Integer.parseInt(input[1]);
 		int[][] graph2 = new int[numberOfNodes][numberOfNodes];
 		for(int i = 0; i < numberOfEdges; i++)
 		{
-			temp = s.nextLine().split("\\s+");
+			temp = s2.nextLine().split("\\s+");
 			graph2row = Integer.parseInt(temp[0].substring(1));
 			graph2col = Integer.parseInt(temp[1].substring(1));
 			graph2[graph2row-1][graph2col-1] = 1;
@@ -45,6 +50,10 @@ public class Runner4
 
 		long stopTime = System.currentTimeMillis();
 		System.out.println(stopTime - startTime);
+		}
+		catch (IOException e) {
+            System.out.println ("File not found!");
+        }
 	}
 
 	public static int getAdjacency (int graph1row, int graph1col, int graph2row, int graph2col, int[][]graph1, int[][]graph2) {
