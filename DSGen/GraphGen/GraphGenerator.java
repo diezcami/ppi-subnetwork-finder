@@ -8,6 +8,8 @@ import java.io.IOException;
 
 public class GraphGenerator {
     public static void main (String args[]) {
+        /*
+        // Manual Generate
         Scanner sc = new Scanner (System.in);
         System.out.println ("Enter number of vertices (N): ");
         int n = Integer.parseInt(sc.nextLine());
@@ -17,6 +19,16 @@ public class GraphGenerator {
         String fileName = sc.nextLine();
         generateGraph (n, m, fileName);
         System.out.println ("Generated a graph!");
+        */
+
+
+        // Auto Generate
+        int num_testcases = 25;
+        for (int i = 1; i <= num_testcases; i++) {
+            String fileName = "output/set_a-" + i + ".txt";
+            generateGraph (50, 4, fileName);
+        }
+
     }
 
     public static void generateGraph (int n, int m, String fileName) {
