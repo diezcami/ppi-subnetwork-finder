@@ -253,12 +253,19 @@ public class RunnerSim
 	}
 	public int compareTo(Node other)
 	{
-    	int min = 0;
+    	/*int min = 0;
     	if((this.edges+this.neighbs+this.similarity)*-1 == (other.edges+other.neighbs+other.similarity)*-1)
     	{
     		min = Math.min(this.index+1, other.index+1);
-    	}
+    	}*/
+    	
     	return Integer.compare((this.edges+this.neighbs+this.similarity)*-1, (other.edges+other.neighbs+other.similarity)*-1);
+    	
+    	/*if((this.edges+this.neighbs)*-1 == (other.edges+other.neighbs)*-1)
+    	{
+    		return Integer.compare((this.similarity)*-1, (other.similarity)*-1);
+    	}
+    	else return Integer.compare((this.edges+this.neighbs)*-1, (other.edges+other.neighbs)*-1);*/
 
 	}
 	}
