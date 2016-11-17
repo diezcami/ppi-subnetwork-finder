@@ -182,14 +182,37 @@ public class DatasetGenerator {
 
     public void generateSequenceSimilarityFile() {
         String similarities = "";
+
+        // Add similarity scores to the original graph
         for (int i = 1; i < gc.length + 1; i ++) {
             // Min + (int)(Math.random() * (Max - Min))
-            int multiplier = (int)(Math.random() * 2) - 1;
             int increment = (int)(Math.random() * sd);
-            increment *= multiplier;
             String temp = "a" + i + " " + "b" + i + " " + (as + increment) + "\n";
             similarities+=temp;
         }
+
+        int max = n1 > n2 ? n1 : n2;
+        int min = n1 + n2 - max;
+        for (int i = 0; i < max ; i ++) {
+            for (int j = 0; j < min; j++) {
+                int edges1 = getNumberOfEdges(g1[i]);
+                int edges2 = getNumberOfEdges(g2[j]);
+                int sim = Math.abs(edges1 - edges2);
+                if (sim <= 1 && edges1 != 0 && edges2 != 0 && sim != 0) { // Similar degrees within 2
+                    double multiplier = edges1 > edges2 ? 1.0 * edges2 / edges1 : 1.0 * edges1 / edges2;
+                    System.out.println (multiplier);
+                    int sign = (int)(Math.random() * 2) - 1;
+                    multiplier *= sd;
+                    String temp = "a" + i + " " + "b" + j + " " + (as - multiplier) + "\n";
+                    similarities+=temp;
+                } else if (sim == 0){
+                    String temp = "a" + i + " " + "b" + j + " " + (as - sd) + "\n";
+                    similarities+=temp;
+                }
+            }
+        }
+
+
         // Temporary: All vertices in GC are similar
         try (Writer writer = new BufferedWriter(new OutputStreamWriter(
                       new FileOutputStream("similarity-" + fileName), "utf-8"))) {
@@ -197,5 +220,14 @@ public class DatasetGenerator {
         } catch (IOException e) {
             System.out.println ("File not found!");
         }
+    }
+
+    public int getNumberOfEdges (int[] arr) {
+        int count = 0;
+        for (int i : arr) {
+            if (i == 1)
+                count ++;
+        }
+        return count;
     }
 }
