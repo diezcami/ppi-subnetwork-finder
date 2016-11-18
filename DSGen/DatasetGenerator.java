@@ -202,10 +202,10 @@ public class DatasetGenerator {
                     double multiplier = edges1 > edges2 ? 1.0 * edges2 / edges1 : 1.0 * edges1 / edges2;
                     int sign = (int)(Math.random() * 2) - 1;
                     multiplier *= sd;
-                    String temp = "a" + i + " " + "b" + j + " " + (as - multiplier) + "\n";
+                    String temp = "a" + (i+1) + " " + "b" + (j+1) + " " + (as - multiplier) + "\n";
                     similarities+=temp;
                 } else if (sim == 0){
-                    String temp = "a" + i + " " + "b" + j + " " + (as - sd) + "\n";
+                    String temp = "a" + (i+1) + " " + "b" + (j+1) + " " + (as - sd) + "\n";
                     similarities+=temp;
                 }
             }
