@@ -25,7 +25,7 @@ public class GraphGenerator {
         // Auto Generate
         int num_testcases = 25;
         for (int i = 1; i <= num_testcases; i++) {
-            String fileName = "output/set_a-" + i + ".txt";
+            String fileName = "set_c-" + i + ".txt";
             generateGraph (50, 4, fileName);
         }
 
