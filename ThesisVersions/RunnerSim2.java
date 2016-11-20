@@ -66,10 +66,10 @@ public class RunnerSim2
 			g2Dex = Integer.parseInt(temp[1].substring(1)) ;
 			corrDex = (graph2.length*g1Dex) + g2Dex - graph2.length - 1;
 			System.out.println("corr: " + corrDex);
-			seqSim[corrDex] = Integer.parseInt(temp[2]);
+			seqSim[corrDex] = (int)Float.parseFloat(temp[2]);
 		}
 
-		cliqueFind(graph2, graph1, graph2.length, graph1.length, seqSim); //CHANGE HERE
+		cliqueFind(graph2, graph1, graph2.length, graph1.length, seqSim, filename); //CHANGE HERE
 
 		long stopTime = System.currentTimeMillis();
 		System.out.println(stopTime - startTime);
@@ -113,13 +113,13 @@ public class RunnerSim2
 		int graph2 = aIndex - (length2 * graph1);
 		return ("a" + (graph1+1) + " b" + (graph2+1) + " (" + (aIndex+1) + ")");
 	}
-	public static void cliqueFind(int[][]graph1, int[][]graph2, int length1, int length2, int[]seqSim)
+	public static void cliqueFind(int[][]graph1, int[][]graph2, int length1, int length2, int[]seqSim, String name)
 	{
-		File file = new File("sampleinput-answers-6.txt");
+		File file = new File("ans-runnerSim2-" + name);
 		PrintWriter printer = null;
 		try
 		{
-			printer = new PrintWriter("sampleinput-answers-6.txt");
+			printer = new PrintWriter("ans-runnerSim2-" + name);
 		}
 		catch(FileNotFoundException fe){};
 		int corrLength = graph1.length*graph2.length;
