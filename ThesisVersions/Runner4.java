@@ -46,7 +46,7 @@ public class Runner4
 			graph2[graph2col-1][graph2row-1] = 1;
 		}
 
-		cliqueFind(graph2, graph1, graph2.length, graph1.length); //CHANGE HERE
+		cliqueFind(graph2, graph1, graph2.length, graph1.length, filename); //CHANGE HERE
 
 		long stopTime = System.currentTimeMillis();
 		System.out.println(stopTime - startTime);
@@ -90,13 +90,13 @@ public class Runner4
 		int graph2 = aIndex - (length2 * graph1);
 		return ("a" + (graph1+1) + " b" + (graph2+1) + " (" + (aIndex+1) + ")");
 	}
-	public static void cliqueFind(int[][]graph1, int[][]graph2, int length1, int length2)
+	public static void cliqueFind(int[][]graph1, int[][]graph2, int length1, int length2, String name)
 	{
-		File file = new File("sampleinput-answers-4.txt");
+		File file = new File("ans-runner4-" + name);
 		PrintWriter printer = null;
 		try
 		{
-			printer = new PrintWriter("sampleinput-answers-4.txt");
+			printer = new PrintWriter("ans-runner4-" + name);
 		}
 		catch(FileNotFoundException fe){};
 		int corrLength = graph1.length*graph2.length;
