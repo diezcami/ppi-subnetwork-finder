@@ -58,7 +58,7 @@ public class DSGenRunner {
 
             // Automatic Generator
             int num_testcases = 25;
-            for (int i = 1; i < num_testcases; i++) {
+            for (int i = 1; i <= num_testcases; i++) {
                 String gc_filename = "set_a-" + i + ".txt";
                 Scanner s = new Scanner(new FileReader(gc_filename));
                 String[] temp = null;

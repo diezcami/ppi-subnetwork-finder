@@ -21,11 +21,11 @@ public class DGAdder {
                 int as = 200;
                 int sd = 50;
                 int n1 = 100;
-                int n2 = 100;
-                String graph_filename = "set_a-testcase-" + i + ".txt";
+                int n2 = 70;
+                String graph_filename = "set_c-testcase-" + i + ".txt";
                 String distractionGraph_filename_A = "d" + i + "a.txt";
                 String distractionGraph_filename_B = "d" + i + "b.txt";
-                String output_filename = "set_b-testcase-" + i + ".txt";
+                String output_filename = "set_d-testcase-" + i + ".txt";
                 String sequenceSimOutput_filename = "similarity-" + output_filename;
                 // ====================================================================================
 
