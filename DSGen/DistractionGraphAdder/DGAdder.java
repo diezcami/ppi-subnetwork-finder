@@ -68,7 +68,7 @@ public class DGAdder {
                 for(int j = 0; j < numberOfEdges_B; j++)
                 {
                         String orig = s.nextLine() + "\n";
-                        edgeList_A += orig;
+                        edgeList_B += orig;
                         temp = orig.split("\\s+");
                         a1 = Integer.parseInt(temp[0].substring(1));
                         a2 = Integer.parseInt(temp[1].substring(1));
